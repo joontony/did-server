@@ -1,0 +1,80 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.14'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'org.snubi.did.main'
+version = '1.2.0' 
+
+java {
+	sourceCompatibility = '11'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.amqp:spring-rabbit-test'	
+	
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.9' //base64 암호화 
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'  // mysql 필요함 	
+	
+	//implementation 'mysql:mysql-connector-java:5.1.49' //healthavatarserver와 연결하기 위해서는 mysql connector 버전을 낮춰야함.
+	
+	implementation 'org.web3j:core:4.8.7'	
+	implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.7.8'		
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.8'
+	
+	//implementation 'org.web3j:web3j-spring-boot-starter:1.6.0'
+	implementation 'org.web3j:core:4.8.7'
+	implementation files("lib/org.snubi.lib-1.4.0.jar") 
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	
+	implementation group: 'org.im4java', name: 'im4java', version: '1.4.0'
+	implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.1'
+	implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-icns', version: '3.2'
+	
+	implementation 'com.google.code.gson:gson:2.10.1'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	
+	// stomp 
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.webjars:webjars-locator-core'
+	implementation 'org.webjars:sockjs-client:1.0.2'
+	implementation 'org.webjars:stomp-websocket:2.3.3'
+	implementation 'org.webjars:bootstrap:3.3.7'
+	implementation 'org.webjars:jquery:3.1.1-1'
+	
+	// rabbitmq 
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'    
+	
+	// kafka 
+	// implementation 'org.springframework.kafka:spring-kafka'
+	
+	implementation group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

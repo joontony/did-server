@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Submission Example</title>
+</head>
+
+<body>
+
+    <form name="form" id="form" action="https://nice.checkplus.co.kr/CheckPlusSafeModel/service.cb" method="post">
+    <br/><br/>
+        m 1: <input type="text" id="m" name="m" value="service" /><br/><br/>
+        token_version_id : <input type="text" id="token_version_id" name="token_version_id" value="" /><br/><br/>
+        enc_data : <input type="text" id="enc_data" name="enc_data" /><br/><br/>
+        integrity_value : <input type="text" id="integrity_value" name="integrity_value" /><br/><br/>
+        <button type="button" onclick="submitForm()">Submit Form</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            // 여기에서 필요한 처리를 수행할 수 있습니다.
+            
+            // 폼을 전송합니다.
+            document.getElementById("form").submit();
+        }
+    </script>
+
+</body>
+
+</html>

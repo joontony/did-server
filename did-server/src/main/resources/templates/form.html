@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Submission Example</title>
+</head>
+<body>
+    <form name="form" id="form" action="https://nice.checkplus.co.kr/CheckPlusSafeModel/service.cb" method="post">
+   
+        <input type="hidden" id="m" name="m" value="service" /><br/><br/>
+        <input type="hidden" id="token_version_id" name="token_version_id" th:value="${token_version_id}" /><br/><br/>
+        <input type="hidden" id="enc_data" name="enc_data"  th:value="${enc_data}"/><br/><br/>
+        <input type="hidden" id="integrity_value" name="integrity_value"  th:value="${integrity_value}"/><br/><br/>
+        
+    </form>
+    <script>    
+    	document.addEventListener("DOMContentLoaded", function () {
+            submitForm();
+        });    
+        function submitForm() {
+            document.getElementById("form").submit();
+        }
+    </script>
+</body>
+</html>
